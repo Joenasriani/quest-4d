@@ -21,18 +21,31 @@
             box-sizing: border-box;
         }
         
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             background-attachment: fixed;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 100%;
+            width: 100%;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        /* Ensure all content stays within container */
+        img, table, iframe, video {
+            max-width: 100%;
         }
         
         header {
@@ -42,6 +55,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
         
         header::before {
@@ -58,19 +72,23 @@
         .header-content {
             position: relative;
             z-index: 1;
+            max-width: 100%;
+            padding: 0 20px;
         }
         
         h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            word-wrap: break-word;
         }
         
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
-            max-width: 800px;
+            max-width: 100%;
             margin: 0 auto;
+            word-wrap: break-word;
         }
         
         .author {
@@ -84,6 +102,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
         }
         
         .nav-container {
@@ -91,12 +110,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            max-width: 100%;
+            width: 100%;
         }
         
         .logo {
             font-weight: bold;
             font-size: 1.2rem;
             color: white;
+            white-space: nowrap;
         }
         
         .nav-links {
@@ -115,6 +137,7 @@
             display: block;
             transition: var(--transition);
             border-bottom: 2px solid transparent;
+            white-space: nowrap;
         }
         
         .nav-links a:hover {
@@ -130,6 +153,8 @@
         
         main {
             padding: 3rem 0;
+            width: 100%;
+            max-width: 100%;
         }
         
         .section {
@@ -139,6 +164,8 @@
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: var(--transition);
+            width: 100%;
+            max-width: 100%;
         }
         
         .section:hover {
@@ -152,31 +179,37 @@
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--light);
             font-size: 1.8rem;
+            word-wrap: break-word;
         }
         
         h3 {
             color: var(--secondary);
             margin: 1.5rem 0 1rem;
             font-size: 1.4rem;
+            word-wrap: break-word;
         }
         
         h4 {
             color: var(--dark);
             margin: 1.2rem 0 0.8rem;
             font-size: 1.2rem;
+            word-wrap: break-word;
         }
         
         p {
             margin-bottom: 1rem;
+            word-wrap: break-word;
         }
         
         ul, ol {
             margin-left: 1.5rem;
             margin-bottom: 1.5rem;
+            max-width: 100%;
         }
         
         li {
             margin-bottom: 0.5rem;
+            word-wrap: break-word;
         }
         
         .highlight {
@@ -185,6 +218,8 @@
             border-radius: 8px;
             border-left: 4px solid var(--primary);
             margin: 1.5rem 0;
+            max-width: 100%;
+            word-wrap: break-word;
         }
         
         .math {
@@ -193,6 +228,8 @@
             padding: 0.2rem 0.4rem;
             border-radius: 4px;
             font-size: 0.95rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         table {
@@ -200,6 +237,9 @@
             border-collapse: collapse;
             margin: 1.5rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
         }
         
         th, td {
@@ -224,6 +264,7 @@
             margin-top: 3rem;
             padding-top: 1.5rem;
             border-top: 1px solid #e0e0e0;
+            max-width: 100%;
         }
         
         .citation ol {
@@ -253,6 +294,7 @@
             transition: var(--transition);
             opacity: 0;
             visibility: hidden;
+            z-index: 99;
         }
         
         .back-to-top.visible {
@@ -271,9 +313,27 @@
             text-align: center;
             padding: 2rem 0;
             margin-top: 3rem;
+            width: 100%;
         }
         
+        /* Mobile-specific fixes */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 2.5rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -283,6 +343,7 @@
                 right: 0;
                 background-color: var(--dark);
                 padding: 1rem 0;
+                width: 100%;
             }
             
             .nav-links.active {
@@ -291,10 +352,12 @@
             
             .nav-links li {
                 margin: 0;
+                width: 100%;
             }
             
             .nav-links a {
                 padding: 0.8rem 20px;
+                width: 100%;
             }
             
             .hamburger {
@@ -305,12 +368,62 @@
                 columns: 1;
             }
             
+            .section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.6rem 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+            
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.7rem;
             }
             
             .section {
-                padding: 1.5rem;
+                padding: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 0.5rem 0.6rem;
             }
         }
     </style>
@@ -743,6 +856,16 @@
                     document.querySelector('.nav-links').classList.remove('active');
                 }
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!nav.contains(e.target) && document.querySelector('.nav-links').classList.contains('active')) {
+                document.querySelector('.nav-links').classList.remove('active');
+            }
         });
     </script>
 </body>
