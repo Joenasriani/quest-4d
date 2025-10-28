@@ -43,11 +43,6 @@
             padding: 0 20px;
         }
         
-        /* Ensure all content stays within container */
-        img, table, iframe, video {
-            max-width: 100%;
-        }
-        
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -358,45 +353,6 @@
             width: 100%;
         }
         
-        /* Image styling */
-        .section-image {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: block;
-        }
-        
-        .image-caption {
-            text-align: center;
-            font-style: italic;
-            color: #666;
-            margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-        
-        .side-by-side {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-        
-        .side-by-side img {
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-        }
-        
         /* Interactive Tesseract Simulation */
         .tesseract-simulation {
             background-color: #111827;
@@ -543,15 +499,6 @@
                 padding: 0.6rem 0.8rem;
             }
             
-            .side-by-side {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .side-by-side img {
-                max-width: 100%;
-            }
-            
             .simulation-container {
                 height: 400px;
             }
@@ -605,7 +552,7 @@
         <div class="container header-content">
             <h1>Simulating Hyperspace</h1>
             <p class="subtitle">A Comprehensive Research Report on the Theory, Implementation, and Implications of Fourth-Dimensional Perception in Virtual Reality</p>
-            <p class="author">by QuestRequestVR (JOENASR)</p>
+            <p class="author">Research & Preparation: QuestRequestVR</p>
         </div>
     </header>
     
@@ -641,10 +588,6 @@
     <main class="container">
         <section id="executive" class="section">
             <h2>Executive Summary</h2>
-            <div class="image-container">
-                <img src="images/4d-vr-concept.jpg" alt="4D VR Concept Visualization" class="section-image">
-            </div>
-            <p class="image-caption">Conceptual visualization of 4D space projected into VR</p>
             
             <p>This report presents a comprehensive investigation into the simulation of a fourth spatial dimension (4D) within immersive three-dimensional (3D) virtual reality (VR) environments. It establishes that the perceptual experience of navigating a four-dimensional Euclidean space (R^4) is not only technically feasible on current and near-future consumer VR hardware but is poised to become a transformative paradigm across science, industry, and the arts.</p>
             
@@ -663,11 +606,6 @@
             <h2>Part I: The Geometric and Perceptual Foundations of Hyperspace</h2>
             
             <h3>1.1 Beyond Three Dimensions: A Conceptual Framework</h3>
-            <div class="side-by-side">
-                <img src="images/3d-to-4d-analogy.jpg" alt="3D to 4D Analogy">
-                <img src="images/flatland-analogy.jpg" alt="Flatland Analogy">
-            </div>
-            <p class="image-caption">Left: 3D to 4D dimensional analogy. Right: The classic Flatland analogy</p>
             
             <p>Human perception and interaction are fundamentally constrained by the three spatial dimensions of our physical reality. A direct consequence of this three-dimensional existence is the principle of occlusion: opaque surfaces of an enclosed volume, such as the walls of a room or the shell of a container, prevent an external observer from viewing the contents within.</p>
             
@@ -678,10 +616,6 @@
             </div>
             
             <h3>1.2 The Mathematics of R^4: Points, Rotations, and Transformations</h3>
-            <div class="image-container">
-                <img src="images/4d-coordinate-system.jpg" alt="4D Coordinate System">
-            </div>
-            <p class="image-caption">Visualization of 4D coordinate system with w-axis</p>
             
             <p>To computationally model and render a 4D space, a robust mathematical foundation is required. This foundation extends the familiar principles of 3D analytic geometry. A point P in a four-dimensional Euclidean space is defined by four coordinates, P=(x,y,z,w), where x, y, and z are the conventional spatial axes and w represents the new, fourth spatial axis, which is orthogonal to the other three.</p>
             
@@ -692,11 +626,6 @@
             <p>While Euler angles and rotation matrices are sufficient for describing these transformations, they become cumbersome and are susceptible to issues like gimbal lock when composing multiple rotations. A more elegant and computationally stable method for handling rotations, especially in 3D and VR development, is the use of quaternions.</p>
             
             <h3>1.3 Projecting the Unseen: Methodologies for 4D-to-3D Visualization</h3>
-            <div class="side-by-side">
-                <img src="images/slicing-projection.jpg" alt="Slicing Projection Method">
-                <img src="images/perspective-projection.jpg" alt="Perspective Projection Method">
-            </div>
-            <p class="image-caption">Left: Cross-sectioning (slicing) projection. Right: Perspective projection</p>
             
             <p>Since a human user in a VR headset can only perceive a three-dimensional world, the core technical challenge of 4D simulation is the method of projection—the mathematical process of converting 4D geometry into a 3D representation. The choice of projection method is not merely a technical detail; it is a fundamental design decision that dictates the entire user experience and interaction paradigm.</p>
             
@@ -708,10 +637,6 @@
             </ul>
             
             <h3>1.4 Building Intuition: From Flatland to Advanced Analogies</h3>
-            <div class="image-container">
-                <img src="images/hypersphere-slicing.jpg" alt="Hypersphere Slicing Through 3D Space">
-            </div>
-            <p class="image-caption">A 4D hypersphere passing through 3D space appears as a changing sphere</p>
             
             <p>The primary barrier to comprehending a fourth spatial dimension is not mathematical but cognitive. The human brain has evolved within a 3D Euclidean environment, and our intuition for spatial relationships is deeply ingrained.</p>
             
@@ -791,11 +716,6 @@
             <p>This interactive demonstration helps build intuition for how 4D objects would appear in our 3D world, and provides a tangible example of the projection methods discussed earlier.</p>
             
             <h3>1.6 A Survey of Foundational Implementations</h3>
-            <div class="side-by-side">
-                <img src="images/miegakure-screenshot.jpg" alt="Miegakure Game Screenshot">
-                <img src="images/4d-toys-screenshot.jpg" alt="4D Toys Screenshot">
-            </div>
-            <p class="image-caption">Left: Miegakure game demonstrating 4D navigation. Right: 4D Toys physics sandbox</p>
             
             <p>The concept of simulating 4D space is not merely theoretical; it has been successfully implemented in several notable software projects that serve as crucial proofs-of-concept.</p>
             
@@ -806,7 +726,7 @@
             </ul>
         </section>
         
-        <!-- Remaining sections would follow the same pattern -->
+        <!-- Additional sections would go here -->
         
         <section class="section citation">
             <h2>Citations</h2>
