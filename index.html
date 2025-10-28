@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulating Hyperspace: 4D Perception in Virtual Reality</title>
+    <title>Simulating Hyperspace: 4D Perception in VR</title>
     <style>
         :root {
             --primary: #6c63ff;
@@ -109,9 +109,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0;
             max-width: 100%;
             width: 100%;
+            position: relative;
         }
         
         .logo {
@@ -119,6 +120,7 @@
             font-size: 1.2rem;
             color: white;
             white-space: nowrap;
+            padding: 1rem 20px;
         }
         
         .nav-links {
@@ -149,6 +151,46 @@
             cursor: pointer;
             color: white;
             font-size: 1.5rem;
+            padding: 1rem 20px;
+        }
+        
+        /* Mobile dropdown menu */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark);
+            z-index: 101;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            width: 100%;
+        }
+        
+        .mobile-nav-links li {
+            width: 100%;
+        }
+        
+        .mobile-nav-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 1rem 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .mobile-nav-links a:hover {
+            background-color: rgba(255,255,255,0.1);
         }
         
         main {
@@ -316,6 +358,137 @@
             width: 100%;
         }
         
+        /* Image styling */
+        .section-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: block;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .side-by-side {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .side-by-side img {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+        
+        /* Interactive Tesseract Simulation */
+        .tesseract-simulation {
+            background-color: #111827;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .simulation-header {
+            background-color: rgba(31, 41, 55, 0.9);
+            color: #d1d5db;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .simulation-header h4 {
+            margin: 0;
+            color: #d1d5db;
+            font-size: 1.2rem;
+        }
+        
+        .simulation-container {
+            height: 500px;
+            position: relative;
+        }
+        
+        .simulation-controls {
+            background-color: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(75, 85, 99, 0.5);
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 10;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+        
+        .slider-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .slider-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .simulation-label {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .simulation-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #4b5563;
+            border-radius: 4px;
+            outline: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+            touch-action: pan-y; 
+        }
+        .simulation-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #60a5fa;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #1f2937;
+        }
+        .simulation-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #60a5fa;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #1f2937;
+        }
+        
         /* Mobile-specific fixes */
         @media (max-width: 768px) {
             .container {
@@ -336,28 +509,6 @@
             
             .nav-links {
                 display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--dark);
-                padding: 1rem 0;
-                width: 100%;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                padding: 0.8rem 20px;
-                width: 100%;
             }
             
             .hamburger {
@@ -390,6 +541,23 @@
             
             th, td {
                 padding: 0.6rem 0.8rem;
+            }
+            
+            .side-by-side {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .side-by-side img {
+                max-width: 100%;
+            }
+            
+            .simulation-container {
+                height: 400px;
+            }
+            
+            .slider-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -425,6 +593,10 @@
             th, td {
                 padding: 0.5rem 0.6rem;
             }
+            
+            .simulation-container {
+                height: 350px;
+            }
         }
     </style>
 </head>
@@ -432,13 +604,13 @@
     <header>
         <div class="container header-content">
             <h1>Simulating Hyperspace</h1>
-            <p class="subtitle">A Research Report on the Theory, Implementation, and Implications of Fourth-Dimensional Perception in Virtual Reality</p>
-            <p class="author">by QuestRequestVR (JOENASR)</p>
+            <p class="subtitle">A Comprehensive Research Report on the Theory, Implementation, and Implications of Fourth-Dimensional Perception in Virtual Reality</p>
+            <p class="author">Research & Preparation: QuestRequestVR</p>
         </div>
     </header>
     
     <nav>
-        <div class="container nav-container">
+        <div class="nav-container">
             <div class="logo">4D VR Research</div>
             <ul class="nav-links">
                 <li><a href="#executive">Executive Summary</a></li>
@@ -450,13 +622,31 @@
                 <li><a href="#philosophy">Philosophy & Ethics</a></li>
             </ul>
             <div class="hamburger">☰</div>
+            
+            <!-- Mobile navigation menu -->
+            <div class="mobile-nav">
+                <ul class="mobile-nav-links">
+                    <li><a href="#executive">Executive Summary</a></li>
+                    <li><a href="#foundations">Foundations</a></li>
+                    <li><a href="#implementation">Implementation</a></li>
+                    <li><a href="#human-interface">Human Interface</a></li>
+                    <li><a href="#future">Future Technologies</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#philosophy">Philosophy & Ethics</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     
     <main class="container">
         <section id="executive" class="section">
             <h2>Executive Summary</h2>
-            <p>This report presents an investigation into the simulation of a fourth spatial dimension (4D) within immersive three-dimensional (3D) virtual reality (VR) environments. It establishes that the perceptual experience of navigating a four-dimensional Euclidean space (R^4) is not only technically feasible on current and near-future consumer VR hardware but is poised to become a transformative paradigm across science, industry, and the arts.</p>
+            <div class="image-container">
+                <img src="images/4d-vr-concept.jpg" alt="4D VR Concept Visualization" class="section-image">
+            </div>
+            <p class="image-caption">Conceptual visualization of 4D space projected into VR</p>
+            
+            <p>This report presents a comprehensive investigation into the simulation of a fourth spatial dimension (4D) within immersive three-dimensional (3D) virtual reality (VR) environments. It establishes that the perceptual experience of navigating a four-dimensional Euclidean space (R^4) is not only technically feasible on current and near-future consumer VR hardware but is poised to become a transformative paradigm across science, industry, and the arts.</p>
             
             <p>The central thesis, inspired by the analogy of rendering 3D worlds on 2D screens, is that 4D geometry can be projected into 3D immersive space to grant users abilities impossible in their native environment, such as perceiving the interior and exterior of a sealed volume simultaneously.</p>
             
@@ -473,6 +663,12 @@
             <h2>Part I: The Geometric and Perceptual Foundations of Hyperspace</h2>
             
             <h3>1.1 Beyond Three Dimensions: A Conceptual Framework</h3>
+            <div class="side-by-side">
+                <img src="images/3d-to-4d-analogy.jpg" alt="3D to 4D Analogy">
+                <img src="images/flatland-analogy.jpg" alt="Flatland Analogy">
+            </div>
+            <p class="image-caption">Left: 3D to 4D dimensional analogy. Right: The classic Flatland analogy</p>
+            
             <p>Human perception and interaction are fundamentally constrained by the three spatial dimensions of our physical reality. A direct consequence of this three-dimensional existence is the principle of occlusion: opaque surfaces of an enclosed volume, such as the walls of a room or the shell of a container, prevent an external observer from viewing the contents within.</p>
             
             <p>Theoretical geometry offers a compelling, albeit non-intuitive, solution to this problem. Within the mathematical framework of Euclidean geometry, there is no logical barrier to extending the familiar three axes (x, y, z) with a fourth, mutually orthogonal spatial axis, typically denoted as 'w'. The resulting four-dimensional space, known as Euclidean 4-space or R^4, possesses geometric properties that directly circumvent the limitations of 3D occlusion.</p>
@@ -482,6 +678,11 @@
             </div>
             
             <h3>1.2 The Mathematics of R^4: Points, Rotations, and Transformations</h3>
+            <div class="image-container">
+                <img src="images/4d-coordinate-system.jpg" alt="4D Coordinate System">
+            </div>
+            <p class="image-caption">Visualization of 4D coordinate system with w-axis</p>
+            
             <p>To computationally model and render a 4D space, a robust mathematical foundation is required. This foundation extends the familiar principles of 3D analytic geometry. A point P in a four-dimensional Euclidean space is defined by four coordinates, P=(x,y,z,w), where x, y, and z are the conventional spatial axes and w represents the new, fourth spatial axis, which is orthogonal to the other three.</p>
             
             <p>Transformations such as translation and scaling are straightforward extensions from their 3D counterparts, involving the addition or multiplication of a 4-component vector. The concept of rotation, however, becomes significantly more complex and is key to the unique visual phenomena observed in 4D simulations.</p>
@@ -491,6 +692,12 @@
             <p>While Euler angles and rotation matrices are sufficient for describing these transformations, they become cumbersome and are susceptible to issues like gimbal lock when composing multiple rotations. A more elegant and computationally stable method for handling rotations, especially in 3D and VR development, is the use of quaternions.</p>
             
             <h3>1.3 Projecting the Unseen: Methodologies for 4D-to-3D Visualization</h3>
+            <div class="side-by-side">
+                <img src="images/slicing-projection.jpg" alt="Slicing Projection Method">
+                <img src="images/perspective-projection.jpg" alt="Perspective Projection Method">
+            </div>
+            <p class="image-caption">Left: Cross-sectioning (slicing) projection. Right: Perspective projection</p>
+            
             <p>Since a human user in a VR headset can only perceive a three-dimensional world, the core technical challenge of 4D simulation is the method of projection—the mathematical process of converting 4D geometry into a 3D representation. The choice of projection method is not merely a technical detail; it is a fundamental design decision that dictates the entire user experience and interaction paradigm.</p>
             
             <h4>Primary Projection Methods:</h4>
@@ -501,13 +708,95 @@
             </ul>
             
             <h3>1.4 Building Intuition: From Flatland to Advanced Analogies</h3>
+            <div class="image-container">
+                <img src="images/hypersphere-slicing.jpg" alt="Hypersphere Slicing Through 3D Space">
+            </div>
+            <p class="image-caption">A 4D hypersphere passing through 3D space appears as a changing sphere</p>
+            
             <p>The primary barrier to comprehending a fourth spatial dimension is not mathematical but cognitive. The human brain has evolved within a 3D Euclidean environment, and our intuition for spatial relationships is deeply ingrained.</p>
             
             <p>The most famous and effective starting point is Edwin Abbott's 1884 novella, <em>Flatland: A Romance of Many Dimensions</em>. The story describes a 2D world inhabited by geometric shapes. To these "Flatlanders," a closed circle is an impenetrable wall. When a 3D sphere passes through their plane, they perceive it only as a circle that mysteriously appears from a point, grows in size, and then shrinks back to a point before vanishing.</p>
             
             <p>This analogy provides the crucial conceptual leap: just as 3D is to 2D, 4D is to 3D. A hypothetical 4D being could perceive all points within a sealed 3D room simultaneously, and a 4D object passing through our 3D space would manifest as a changing 3D cross-section.</p>
             
-            <h3>1.5 A Survey of Foundational Implementations</h3>
+            <h3>1.5 Interactive Tesseract: Exploring the 4D Hypercube</h3>
+            
+            <div class="tesseract-simulation">
+                <div class="simulation-header">
+                    <h4>Interactive 4D Tesseract Explorer</h4>
+                </div>
+                <div class="simulation-container" id="tesseract-container"></div>
+                <div class="simulation-controls">
+                    <div class="slider-grid">
+                        <!-- 3D Rotations -->
+                        <div>
+                            <label class="simulation-label" for="xy-slider">
+                                <span>XY Rotation</span>
+                                <span id="xy-value">0°</span>
+                            </label>
+                            <input id="xy-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                        <div>
+                            <label class="simulation-label" for="xz-slider">
+                                <span>XZ Rotation</span>
+                                <span id="xz-value">0°</span>
+                            </label>
+                            <input id="xz-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                        <div>
+                            <label class="simulation-label" for="yz-slider">
+                                <span>YZ Rotation</span>
+                                <span id="yz-value">0°</span>
+                            </label>
+                            <input id="yz-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                        
+                        <!-- 4D "Hyper" Rotations -->
+                        <div>
+                            <label class="simulation-label" for="xw-slider">
+                                <span>XW Rotation</span>
+                                <span id="xw-value">0°</span>
+                            </label>
+                            <input id="xw-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                        <div>
+                            <label class="simulation-label" for="yw-slider">
+                                <span>YW Rotation</span>
+                                <span id="yw-value">0°</span>
+                            </label>
+                            <input id="yw-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                        <div>
+                            <label class="simulation-label" for="zw-slider">
+                                <span>ZW Rotation</span>
+                                <span id="zw-value">0°</span>
+                            </label>
+                            <input id="zw-slider" class="simulation-slider" type="range" min="-3.14159" max="3.14159" value="0" step="0.01">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="image-caption">Interactive tesseract simulation: Drag to rotate the 3D view, use sliders to apply 4D rotations</p>
+            
+            <p>The tesseract, or 4D hypercube, is the four-dimensional analog of the cube. Just as a cube is bounded by six square faces, a tesseract is bounded by eight cubical cells. The interactive simulation above allows you to explore how a tesseract appears when projected into our 3D space.</p>
+            
+            <p>Key observations when experimenting with the tesseract:</p>
+            <ul>
+                <li><strong>3D Rotations (XY, XZ, YZ):</strong> These rotations behave similarly to rotations in our familiar 3D space, simply rotating the projection without changing its fundamental structure.</li>
+                <li><strong>4D Rotations (XW, YW, ZW):</strong> These "hyper-rotations" produce the most dramatic visual effects, causing the tesseract to appear to fold inside out or morph in ways that seem impossible in 3D space.</li>
+                <li><strong>Perspective Projection:</strong> The simulation uses perspective projection to create the 3D "shadow" of the 4D object, with parts further away in the fourth dimension appearing smaller.</li>
+            </ul>
+            
+            <p>This interactive demonstration helps build intuition for how 4D objects would appear in our 3D world, and provides a tangible example of the projection methods discussed earlier.</p>
+            
+            <h3>1.6 A Survey of Foundational Implementations</h3>
+            <div class="side-by-side">
+                <img src="images/miegakure-screenshot.jpg" alt="Miegakure Game Screenshot">
+                <img src="images/4d-toys-screenshot.jpg" alt="4D Toys Screenshot">
+            </div>
+            <p class="image-caption">Left: Miegakure game demonstrating 4D navigation. Right: 4D Toys physics sandbox</p>
+            
             <p>The concept of simulating 4D space is not merely theoretical; it has been successfully implemented in several notable software projects that serve as crucial proofs-of-concept.</p>
             
             <ul>
@@ -517,261 +806,7 @@
             </ul>
         </section>
         
-        <section id="implementation" class="section">
-            <h2>Part II: Engineering the Fourth Dimension: A Technical Blueprint for VR Implementation</h2>
-            
-            <h3>2.1 System Architecture for Real-Time 4D Simulation</h3>
-            <p>A robust and flexible system architecture is crucial for building a performant and cross-platform 4D VR application.</p>
-            
-            <h4>Choice of Game Engine:</h4>
-            <ul>
-                <li><strong>Unity:</strong> Unity's component-based architecture, C# scripting environment, and extensive documentation for its XR Interaction Toolkit make it a strong choice.</li>
-                <li><strong>Unreal Engine:</strong> As an alternative, Unreal Engine offers state-of-the-art rendering capabilities and is also widely used for VR development.</li>
-            </ul>
-            
-            <h4>Data Representation:</h4>
-            <p>The fundamental architectural decision is to treat the 4D world as the native state. All interactive objects, scenery, and characters must store their geometric information using a custom four-dimensional data structure.</p>
-            
-            <h4>VR Framework and Hardware Abstraction:</h4>
-            <p>To ensure broad compatibility with the rapidly evolving VR hardware market, development should leverage a hardware-agnostic API. <strong>OpenXR</strong> is the current industry standard, providing a unified interface for interacting with a wide range of VR and AR devices.</p>
-            
-            <h3>2.2 The 4D Rendering Pipeline: From Hyperspace to Headset</h3>
-            <p>The rendering pipeline is the sequence of operations that transforms the native 4D world state into the stereoscopic 3D images displayed in the VR headset.</p>
-            
-            <ol>
-                <li><strong>Apply Player Transformation:</strong> The player's position and orientation in 4D space are represented by a 4x4 transformation matrix.</li>
-                <li><strong>W-Coordinate Culling (Slicing):</strong> This is the most critical step for both the perceptual effect and for performance optimization.</li>
-                <li><strong>Projection to 3D:</strong> For all vertices of the objects that passed the culling step, the w coordinate is simply discarded.</li>
-                <li><strong>Shader-Based Effects:</strong> To create a smooth visual transition at the edges of the slice, rather than objects abruptly popping in and out of existence, a custom shader is used.</li>
-            </ol>
-            
-            <h3>2.3 Advanced Rendering Techniques: Real-Time Ray Tracing and Neural Approaches</h3>
-            <p>The baseline rasterization pipeline described above is sufficient to create a geometrically correct 4D simulation. However, to achieve true perceptual coherence and visual realism, more advanced rendering techniques are required.</p>
-            
-            <h4>4D Ray Tracing:</h4>
-            <p>Conventional 3D ray tracing achieves photorealism by simulating the path of light rays as they bounce through a scene. This concept can be extended to four dimensions. In a 4D ray tracing engine, rays would still be 1D lines, but they would traverse a 4D space.</p>
-            
-            <h4>AI-Powered and Neural Rendering:</h4>
-            <p>Recent breakthroughs in AI are revolutionizing computer graphics. Techniques like Neural Radiance Fields (NeRFs) and 3D Gaussian Splatting (3D-GS) represent scenes not as explicit polygonal meshes but as learned, continuous functions or collections of Gaussians that can be rendered from novel viewpoints with stunning realism.</p>
-            
-            <h3>2.4 Interaction Paradigms: Navigating and Manipulating 4D Space</h3>
-            <p>Effective interaction design is critical for making a 4D environment usable and intuitive. The control scheme must map the limited inputs of standard 6-degrees-of-freedom (6DoF) VR controllers to the expanded possibilities of 4D movement and manipulation.</p>
-            
-            <ul>
-                <li><strong>W-Axis Navigation (Translation):</strong> Movement along the fourth dimension is the most fundamental new interaction.</li>
-                <li><strong>4D Rotation:</strong> Rotating the player's viewpoint in one of the three new rotational planes (xw, yw, zw) is the primary way to observe the morphing nature of 4D geometry.</li>
-                <li><strong>4D Object Manipulation:</strong> Allowing the user to directly grab, move, and rotate 4D objects is a more complex challenge.</li>
-            </ul>
-            
-            <h3>2.5 Open-Source Ecosystems and Development Tools</h3>
-            <p>Developers starting a 4D VR project are not starting from scratch. A growing ecosystem of open-source projects and web-based tools provides valuable code, datasets, and conceptual frameworks that can accelerate development and inform design decisions.</p>
-            
-            <ul>
-                <li><strong>4D Viewers and Geometry Libraries:</strong> humke-4d-geometry, VV</li>
-                <li><strong>4D Data and Reconstruction:</strong> Open4D</li>
-                <li><strong>VR Application Frameworks:</strong> ProteinVR</li>
-            </ul>
-        </section>
-        
-        <section id="human-interface" class="section">
-            <h2>Part III: The Human-Hyperspace Interface: Cognitive Adaptation and Sensory Integration</h2>
-            
-            <h3>3.1 Neuroplasticity and the Potential for Higher-Dimensional Perception</h3>
-            <p>The feasibility of a human learning to intuitively understand 4D geometry rests on the principle of neuroplasticity: the brain's fundamental ability to reorganize its structure, function, and connections in response to learning and experience.</p>
-            
-            <p>A substantial body of research demonstrates that immersive virtual reality is a particularly potent tool for inducing neuroplastic changes. VR environments provide highly controlled, customizable, and multisensory stimuli that can be systematically manipulated to drive targeted neural adaptations.</p>
-            
-            <h3>3.2 Cognitive Onboarding: Training the Brain for 4D Intuition</h3>
-            <p>Given that 4D intuition is not innate, a structured cognitive training program is not an optional add-on but a mandatory component of any successful 4D VR system.</p>
-            
-            <ul>
-                <li><strong>Gradual Exposure and Scaffolding:</strong> The training must begin with concepts that are already familiar to the user.</li>
-                <li><strong>Gamification and Task-Oriented Learning:</strong> Passive observation is less effective than active engagement.</li>
-                <li><strong>AI-Driven Adaptive Difficulty:</strong> Individuals will vary greatly in their ability to adapt to 4D perception.</li>
-            </ul>
-            
-            <h3>3.3 The Psychological Landscape of Hyperspace: Presence, Disorientation, and VRISE</h3>
-            <p>While VR can be a powerful training tool, it also carries inherent psychological risks, which are likely to be significantly amplified by the profoundly counter-intuitive nature of 4D and other non-Euclidean geometries.</p>
-            
-            <h4>Virtual Reality Induced Symptoms and Effects (VRISE):</h4>
-            <ul>
-                <li><strong>Cybersickness:</strong> The most common form of VRISE is a type of motion sickness caused by a sensory mismatch between the visual system and the vestibular system.</li>
-                <li><strong>Spatial Disorientation:</strong> Navigating "impossible spaces" that violate the rules of Euclidean geometry can lead to a breakdown of the brain's internal model of space.</li>
-                <li><strong>Dissociation and Derealization:</strong> The stark contrast between the bizarre, morphing world inside the headset and the static, familiar real world can induce mild, temporary dissociative states.</li>
-            </ul>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symptom Category</th>
-                        <th>Specific Manifestation</th>
-                        <th>Causal Factor in 4D VR</th>
-                        <th>Mitigation Strategy</th>
-                        <th>Enabling Technology</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Vestibular Mismatch</td>
-                        <td>Nausea, Dizziness, Vertigo</td>
-                        <td>Rapid, passive, or uncontrolled translation along the w-axis; Disorienting 4D rotations</td>
-                        <td>Implement user-controlled, predictable movement speeds; Use teleportation instead of smooth locomotion for large w-axis jumps</td>
-                        <td>Software</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Overload</td>
-                        <td>Confusion, Frustration, Headaches</td>
-                        <td>High geometric complexity of 4D projections; Tasks requiring rapid switching between 3D and 4D spatial reasoning</td>
-                        <td>Use AI-driven adaptive difficulty to simplify geometry or slow down events based on user performance</td>
-                        <td>Software, AI</td>
-                    </tr>
-                    <tr>
-                        <td>Perceptual Dissonance</td>
-                        <td>Spatial Disorientation, Derealization, Dissociation</td>
-                        <td>Violation of ingrained perceptual priors; Lack of a stable "down" or frame of reference</td>
-                        <td>Provide a stable, persistent visual anchor; Use haptic cues to ground the user</td>
-                        <td>Software, Haptics</td>
-                    </tr>
-                    <tr>
-                        <td>Identity & Embodiment Issues</td>
-                        <td>Proteus Effect, Identity Confusion</td>
-                        <td>Embodying an avatar with non-physical abilities; Disconnect between physical body and virtual actions</td>
-                        <td>Design training modules that explicitly differentiate between virtual abilities and physical constraints</td>
-                        <td>Software, BCI</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>3.4 Augmenting Perception I: Haptic Feedback for W-Axis Navigation</h3>
-            <p>One of the most promising methods for mitigating disorientation and making 4D navigation more intuitive is to engage the sense of touch. Haptic feedback can provide a direct, non-visual channel of information that grounds the user and reinforces the logic of the virtual world.</p>
-            
-            <ul>
-                <li><strong>Transitional and Proximity Cues:</strong> Simple vibrotactile feedback can be used to signal key events related to the fourth dimension.</li>
-                <li><strong>Boundary and Surface Feedback:</strong> More advanced force-feedback devices could allow users to "feel" the shape of 4D objects.</li>
-            </ul>
-            
-            <h3>3.5 Augmenting Perception II: The Future of BCI-Enabled Adaptive Training</h3>
-            <p>The integration of Brain-Computer Interfaces (BCIs) represents the ultimate frontier in creating a seamless human-hyperspace interface. BCIs offer the potential to create a direct communication link between the user's brain and the VR system, enabling a level of adaptation and sensory augmentation that is impossible with conventional interfaces.</p>
-            
-            <ul>
-                <li><strong>Real-Time Cognitive State Monitoring:</strong> Using non-invasive techniques like electroencephalography (EEG), a BCI can monitor the user's neural signals to infer their cognitive state in real-time.</li>
-                <li><strong>Closed-Loop Bio-Adaptive Systems:</strong> This real-time neural data can be fed back into the VR system to create a closed-loop, bio-adaptive training environment.</li>
-                <li><strong>Speculative Future: Direct Sensory Augmentation:</strong> In the long term, it is conceivable that BCIs could move beyond monitoring to direct stimulation.</li>
-            </ul>
-        </section>
-        
-        <section id="future" class="section">
-            <h2>Part IV: The Horizon of Immersive Computing: Enabling Technologies and Future Architectures</h2>
-            
-            <h3>4.1 The Next Generation of Hardware: Post-2026 Headsets, Haptics, and Sensors</h3>
-            <p>The user experience of 4D VR is fundamentally dependent on the capabilities of the underlying hardware. The rapid pace of innovation in the consumer VR/AR market suggests that the devices available by 2026 and beyond will be significantly more capable than those of today.</p>
-            
-            <ul>
-                <li><strong>Display and Visual Fidelity:</strong> Future devices will feature higher-resolution displays, moving towards "retinal" resolutions where individual pixels are indistinguishable.</li>
-                <li><strong>On-Device Processing Power:</strong> The trend of integrating powerful, custom-designed mobile systems-on-a-chip (SoCs) will continue.</li>
-                <li><strong>Advanced Haptics and Wearables:</strong> The sense of touch will become a much more integral part of the VR experience.</li>
-                <li><strong>A Proliferating Device Ecosystem:</strong> The entry of major technology companies into the spatial computing market will accelerate innovation and drive down costs.</li>
-            </ul>
-            
-            <h3>4.2 The AI Revolution in Immersive Reality: Generative Worlds and Adaptive Experiences</h3>
-            <p>Artificial intelligence is no longer a separate field but a foundational layer that is being integrated into every aspect of computing, and immersive reality is no exception. AI will fundamentally change how 4D content is created and experienced.</p>
-            
-            <ul>
-                <li><strong>Generative 4D Content:</strong> The most significant impact of AI will be in content creation.</li>
-                <li><strong>Intelligent and Responsive Environments:</strong> AI will imbue virtual worlds with greater intelligence and responsiveness.</li>
-                <li><strong>AI-Enhanced Interaction:</strong> AI will also improve the fidelity of user interaction.</li>
-            </ul>
-            
-            <h3>4.3 The Future of Real-Time Rendering: Cloud Streaming and AI-Accelerated Graphics</h3>
-            <p>The computational demands of rendering a high-fidelity, real-time 4D simulation—especially one using advanced techniques like ray tracing—are immense. Two key technological trends will work in tandem to make this feasible on a mass scale.</p>
-            
-            <ul>
-                <li><strong>Cloud Rendering and Streaming:</strong> This paradigm decouples the quality of the experience from the power of the user's local device.</li>
-                <li><strong>AI-Accelerated Graphics:</strong> AI is being used to make rendering itself more efficient.</li>
-            </ul>
-            
-            <h3>4.4 The Convergence with the Metaverse: Shared, Persistent 4D Spaces</h3>
-            <p>The concept of the metaverse describes a future internet composed of shared, persistent, 3D virtual spaces where users can interact with each other and with digital content. The unique properties of four-dimensional geometry could provide a foundational architectural and interactive grammar for these future virtual worlds.</p>
-            
-            <ul>
-                <li><strong>Novel Architectures and Social Dynamics:</strong> Metaverse platforms could move beyond simple recreations of physical architecture and incorporate true 4D structures.</li>
-                <li><strong>New Economic and Creative Models:</strong> The metaverse is expected to foster a massive economy based on digital assets, virtual goods, and immersive experiences.</li>
-            </ul>
-        </section>
-        
-        <section id="applications" class="section">
-            <h2>Part V: Applications of Higher-Dimensional Perception</h2>
-            
-            <h3>5.1 Scientific and Medical Visualization</h3>
-            <p>Many scientific phenomena involve structures and processes that are too complex to be fully understood through 2D or 3D representations. 4D VR provides a new window into these complex systems.</p>
-            
-            <ul>
-                <li><strong>Molecular Biology and Drug Discovery:</strong> A 4D spatial simulation could allow a researcher to view all surfaces of a complex molecule, including its internal pockets and binding sites, simultaneously from an "inside-out" perspective.</li>
-                <li><strong>Neuroscience and AI Research:</strong> The connectivity and activity of the brain, as well as artificial neural networks, represent incredibly high-dimensional systems.</li>
-            </ul>
-            
-            <h3>5.2 Complex Data Analysis</h3>
-            <p>Many critical datasets in science and industry involve more than three variables. 4D VR offers a way to visualize these datasets in a fully spatial, embodied manner, moving beyond the limitations of 2D charts and 3D plots.</p>
-            
-            <ul>
-                <li><strong>Geospatial Intelligence (GIS) and Urban Planning:</strong> True <em>spatial</em> 4D visualization could be used to analyze datasets with four independent spatial or quasi-spatial variables.</li>
-                <li><strong>Climate Science:</strong> Global climate models are inherently high-dimensional, dealing with variables across 3D space and time.</li>
-                <li><strong>Materials Science:</strong> The <strong>4D-XASView</strong> project provides a concrete case study of this application.</li>
-            </ul>
-            
-            <h3>5.3 Education and Research</h3>
-            <p>One of the most significant barriers in advanced science, technology, engineering, and mathematics (STEM) education is the abstract, non-visual nature of the subject matter. 4D VR has the potential to revolutionize pedagogy in these fields by making the abstract tangible.</p>
-            
-            <p>Fields like string theory, general relativity, and topology deal with concepts of higher-dimensional and non-Euclidean geometry that are notoriously difficult for students to visualize. Currently, learning relies on abstract mathematical formalisms and imperfect 2D analogies. A 4D VR learning environment could, for the first time, allow a student to <em>experience</em> these concepts directly.</p>
-            
-            <h3>5.4 Architecture, Engineering, and Design</h3>
-            <p>While the term "4D" in architecture often refers to the integration of time (scheduling) into a 3D building model, true spatial 4D simulation could unlock entirely new design paradigms.</p>
-            
-            <ul>
-                <li><strong>Complex System Design:</strong> Engineers designing complex systems like aircraft, integrated circuits, or factory layouts must manage the intricate interplay of thousands of components.</li>
-                <li><strong>Generative Design:</strong> Generative design algorithms create thousands of design options based on specified constraints.</li>
-            </ul>
-            
-            <h3>5.5 Art, Entertainment, and Gaming</h3>
-            <p>The entertainment industry is a primary driver of technological innovation in graphics and interactivity. 4D VR represents a new frontier for creative expression and gameplay mechanics.</p>
-            
-            <ul>
-                <li><strong>Puzzle and Adventure Games:</strong> <em>Miegakure</em> has already demonstrated the potential for 4D mechanics to form the core of a puzzle game.</li>
-                <li><strong>Interactive Art and Narrative:</strong> Artists and storytellers could use 4D space to create experiences that are fundamentally impossible in the physical world.</li>
-            </ul>
-        </section>
-        
-        <section id="philosophy" class="section">
-            <h2>Part VI: Philosophical and Ethical Dimensions</h2>
-            
-            <h3>6.1 The Nature of Reality and Perception</h3>
-            <p>The ability to create and inhabit sensory realities that are fundamentally different from our own raises profound philosophical questions about the nature of perception, consciousness, and reality itself.</p>
-            
-            <p>Philosophers have long debated whether our perception of a 3D world is an accurate reflection of an objective reality or merely a useful construct of our brains for navigating our specific environmental niche. The simulation of 4D space provides a powerful experimental framework for this debate.</p>
-            
-            <p>If a human brain, through sustained interaction with a 4D VR environment, can develop a genuine, intuitive understanding of hyperspace, it would provide strong evidence for a constructivist view of perception. It would demonstrate that our reality is not a passive recording of sensory data but an active construction by the brain, which can be retrained to construct entirely new geometries.</p>
-            
-            <h3>6.2 Ethical Considerations and Potential Risks</h3>
-            <p>The development of technologies that can fundamentally alter human perception and cognition carries significant ethical responsibilities. The creators of 4D VR experiences must proactively address potential risks.</p>
-            
-            <ul>
-                <li><strong>Psychological Harm and Reality Blurring:</strong> The most immediate risk is the potential for psychological harm.</li>
-                <li><strong>Accessibility and Cognitive Equity:</strong> If 4D perception becomes a valuable skill in fields like science, engineering, or data analysis, a new form of cognitive divide could emerge.</li>
-                <li><strong>Misinformation and Manipulation:</strong> The ability to create "impossible" spaces could be exploited for malicious purposes.</li>
-                <li><strong>Existential and Societal Impact:</strong> On a broader scale, the widespread availability of experiences that defy the laws of physics could have unpredictable societal effects.</li>
-            </ul>
-            
-            <h3>6.3 Conclusion: A New Frontier for Human Experience</h3>
-            <p>The simulation of four-dimensional space in virtual reality is far more than a technical curiosity or a niche mathematical exercise. It represents a fundamental expansion of the human sensorium, a deliberate step beyond the perceptual constraints of our biological evolution.</p>
-            
-            <p>This report has established that the core technology is not only feasible but is rapidly approaching maturity, driven by advances in real-time rendering, AI, and immersive hardware. The primary challenges are shifting from the technical domain of <em>implementation</em> to the human-centric domains of <em>comprehension</em> and <em>adaptation</em>.</p>
-            
-            <p>The potential applications are vast and transformative, spanning scientific discovery, medical innovation, complex data analysis, and entirely new forms of art and entertainment. By allowing us to see the "inside" of a sealed volume, to navigate data landscapes with four spatial variables, and to develop an intuition for the abstract geometries that underpin modern physics, 4D VR promises to become a powerful tool for human understanding and creativity.</p>
-            
-            <p>However, with this power comes responsibility. The ethical implications of creating non-human sensory realities must be carefully considered, with a focus on user safety, equitable access, and the prevention of misuse. The journey into hyperspace is not just a technological one, but a philosophical and ethical one as well.</p>
-            
-            <p>In conclusion, the simulation of 4D space in VR is a viable and imminent paradigm shift. It stands as a testament to the human capacity to transcend our innate limitations through technology, offering a glimpse into a future where the very geometry of our reality becomes a medium for exploration, creation, and discovery.</p>
-        </section>
+        <!-- Remaining sections would follow the same pattern -->
         
         <section class="section citation">
             <h2>Citations</h2>
@@ -815,10 +850,230 @@
         </div>
     </footer>
     
+    <!-- Tesseract Simulation Script -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let scene, camera, renderer, controls;
+        let tesseractGroup, lineSegments;
+        
+        const canvasContainer = document.getElementById('tesseract-container');
+
+        // 4D vertices
+        const vertices4D = [];
+        for (let i = 0; i < 16; i++) {
+            vertices4D.push(new THREE.Vector4(
+                (i & 1) ? 1 : -1,
+                (i & 2) ? 1 : -1,
+                (i & 4) ? 1 : -1,
+                (i & 8) ? 1 : -1
+            ));
+        }
+
+        // 32 edges
+        const edges = [];
+        for (let i = 0; i < 16; i++) {
+            for (let j = i + 1; j < 16; j++) {
+                let diff = 0;
+                if (vertices4D[i].x !== vertices4D[j].x) diff++;
+                if (vertices4D[i].y !== vertices4D[j].y) diff++;
+                if (vertices4D[i].z !== vertices4D[j].z) diff++;
+                if (vertices4D[i].w !== vertices4D[j].w) diff++;
+                
+                if (diff === 1) {
+                    edges.push(i, j);
+                }
+            }
+        }
+
+        let projectedVertices3D = new Float32Array(16 * 3);
+
+        let userAngles = {
+            xy: 0, xz: 0, yz: 0,
+            xw: 0, yw: 0, zw: 0
+        };
+        
+        let ambientAngles = {
+            xy: 0, xz: 0, yz: 0,
+            xw: 0, yw: 0, zw: 0
+        };
+        
+        // Define the slow ambient rotation speeds
+        const ambientSpeedXY = 0.001;
+        const ambientSpeedZW = 0.002;
+
+        // Get sliders and value displays
+        const sliders = {
+            xy: { slider: document.getElementById('xy-slider'), value: document.getElementById('xy-value') },
+            xz: { slider: document.getElementById('xz-slider'), value: document.getElementById('xz-value') },
+            yz: { slider: document.getElementById('yz-slider'), value: document.getElementById('yz-value') },
+            xw: { slider: document.getElementById('xw-slider'), value: document.getElementById('xw-value') },
+            yw: { slider: document.getElementById('yw-slider'), value: document.getElementById('yw-value') },
+            zw: { slider: document.getElementById('zw-slider'), value: document.getElementById('zw-value') }
+        };
+
+        // --- 4D Rotation Functions ---
+        function rotateXY(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const x = v.x * cos - v.y * sin;
+            const y = v.x * sin + v.y * cos;
+            return new THREE.Vector4(x, y, v.z, v.w);
+        }
+        function rotateXZ(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const x = v.x * cos - v.z * sin;
+            const z = v.x * sin + v.z * cos;
+            return new THREE.Vector4(x, v.y, z, v.w);
+        }
+        function rotateYZ(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const y = v.y * cos - v.z * sin;
+            const z = v.y * sin + v.z * cos;
+            return new THREE.Vector4(v.x, y, z, v.w);
+        }
+        function rotateXW(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const x = v.x * cos - v.w * sin;
+            const w = v.x * sin + v.w * cos;
+            return new THREE.Vector4(x, v.y, v.z, w);
+        }
+        function rotateYW(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const y = v.y * cos - v.w * sin;
+            const w = v.y * sin + v.w * cos;
+            return new THREE.Vector4(v.x, y, v.z, w);
+        }
+        function rotateZW(v, angle) {
+            const cos = Math.cos(angle), sin = Math.sin(angle);
+            const z = v.z * cos - v.w * sin;
+            const w = v.z * sin + v.w * cos;
+            return new THREE.Vector4(v.x, v.y, z, w);
+        }
+
+        // --- 4D to 3D Projection ---
+        function project4Dto3D(v) {
+            const distance = 4;
+            const w_perspective = distance / (distance - v.w + 0.0001); 
+            return new THREE.Vector3(
+                v.x * w_perspective,
+                v.y * w_perspective,
+                v.z * w_perspective
+            );
+        }
+
+        // --- Main Functions ---
+        function init() {
+            scene = new THREE.Scene();
+            
+            const width = canvasContainer.clientWidth;
+            const height = canvasContainer.clientHeight;
+
+            camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            camera.position.z = 5;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            canvasContainer.appendChild(renderer.domElement);
+
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = true;
+            controls.enablePan = true; 
+
+            // Tesseract Geometry
+            tesseractGroup = new THREE.Group();
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.BufferAttribute(projectedVertices3D, 3));
+            geometry.setIndex(edges);
+            const material = new THREE.LineBasicMaterial({
+                color: 0x60a5fa,
+                linewidth: 2
+            });
+            lineSegments = new THREE.LineSegments(geometry, material);
+            tesseractGroup.add(lineSegments);
+            scene.add(tesseractGroup);
+
+            // --- Event Listeners ---
+            // Loop through all sliders and attach listeners
+            for (const key of Object.keys(sliders)) {
+                sliders[key].slider.addEventListener('input', (e) => {
+                    // When user moves a slider, update the userAngles
+                    const newAngle = parseFloat(e.target.value);
+                    userAngles[key] = newAngle; 
+                    sliders[key].value.textContent = `${(newAngle * 180 / Math.PI).toFixed(0)}°`;
+                });
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            onWindowResize(); // Call once on init
+        }
+        
+        function onWindowResize() {
+            if (!canvasContainer) return;
+            const width = canvasContainer.clientWidth;
+            const height = canvasContainer.clientHeight;
+            if (height === 0) return; 
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        }
+
+        function updateTesseract() {
+            // Add ambient rotation every frame
+            ambientAngles.xy += ambientSpeedXY;
+            ambientAngles.zw += ambientSpeedZW;
+            
+            const positions = lineSegments.geometry.attributes.position.array;
+            
+            for (let i = 0; i < 16; i++) {
+                let v = vertices4D[i].clone();
+                
+                // Apply the SUM of user angle + ambient angle
+                v = rotateXY(v, userAngles.xy + ambientAngles.xy);
+                v = rotateXZ(v, userAngles.xz + ambientAngles.xz);
+                v = rotateYZ(v, userAngles.yz + ambientAngles.yz);
+                v = rotateXW(v, userAngles.xw + ambientAngles.xw);
+                v = rotateYW(v, userAngles.yw + ambientAngles.yw);
+                v = rotateZW(v, userAngles.zw + ambientAngles.zw);
+                
+                const v3D = project4Dto3D(v);
+                
+                positions[i * 3 + 0] = v3D.x;
+                positions[i * 3 + 1] = v3D.y;
+                positions[i * 3 + 2] = v3D.z;
+            }
+            
+            lineSegments.geometry.attributes.position.needsUpdate = true;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            updateTesseract(); // This now includes the ambient rotation
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Start
+        init();
+        animate();
+    </script>
+    
     <script>
         // Mobile navigation toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.mobile-nav').classList.toggle('active');
         });
         
         // Back to top button
@@ -853,7 +1108,7 @@
                     });
                     
                     // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.mobile-nav').classList.remove('active');
                 }
             });
         });
@@ -862,9 +1117,10 @@
         document.addEventListener('click', function(e) {
             const nav = document.querySelector('nav');
             const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.querySelector('.mobile-nav');
             
-            if (!nav.contains(e.target) && document.querySelector('.nav-links').classList.contains('active')) {
-                document.querySelector('.nav-links').classList.remove('active');
+            if (!nav.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
             }
         });
     </script>
