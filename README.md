@@ -3,6 +3,8 @@
 **Author:** Joe Nasr / QuestRequestVR  
 **Research series:** Joe Nasr Quest Research  
 **Live project:** https://joenasriani.github.io/quest-4d/  
+**Research abstract:** https://joenasriani.github.io/quest-4d/research.html  
+**Research collection:** https://joenasriani.github.io/joe-research-registry/quest-research.html  
 **Author record:** https://joenasriani.github.io/joe-research-registry/author/joe-nasr.html  
 **Status:** Interactive research explainer and visualization study
 
