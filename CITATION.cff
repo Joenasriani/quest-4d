@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you reference this project, please cite it as below."
+title: "Quest-4D: Simulating Hyperspace — 4D Perception in VR"
+type: software
+authors:
+  - family-names: Nasr
+    given-names: Joe
+repository-code: "https://github.com/Joenasriani/quest-4d"
+url: "https://joenasriani.github.io/quest-4d/"
+abstract: "Interactive research explainer exploring higher-dimensional geometry, spatial reasoning and immersive visualization through a browser-based 4D projection interface."
+keywords:
+  - Meta Quest
+  - XR
+  - VR
+  - spatial computing
+  - four-dimensional geometry
+  - tesseract
+  - spatial reasoning
+  - interactive mathematics
+  - immersive learning
