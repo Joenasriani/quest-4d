@@ -6,6 +6,7 @@
 **Research abstract:** https://joenasriani.github.io/quest-4d/research.html  
 **Research collection:** https://joenasriani.github.io/joe-research-registry/quest-research.html  
 **Author record:** https://joenasriani.github.io/joe-research-registry/author/joe-nasr.html  
+**Canonical identity:** https://joe-nasr-signals.vercel.app/v2/  
 **Status:** Interactive research explainer and visualization study  
 **Primary field:** Scientific Visualization / Interactive Mathematics / Spatial Reasoning  
 **Specialisms:** four-dimensional geometry, tesseract visualization, higher-dimensional projection, VR/XR education, immersive learning, visual reasoning, HCI
