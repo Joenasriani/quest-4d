@@ -6,7 +6,9 @@
 **Research abstract:** https://joenasriani.github.io/quest-4d/research.html  
 **Research collection:** https://joenasriani.github.io/joe-research-registry/quest-research.html  
 **Author record:** https://joenasriani.github.io/joe-research-registry/author/joe-nasr.html  
-**Status:** Interactive research explainer and visualization study
+**Status:** Interactive research explainer and visualization study  
+**Primary field:** Scientific Visualization / Interactive Mathematics / Spatial Reasoning  
+**Specialisms:** four-dimensional geometry, tesseract visualization, higher-dimensional projection, VR/XR education, immersive learning, visual reasoning, HCI
 
 ## Overview
 
@@ -15,6 +17,19 @@ Quest-4D is an interactive VR / spatial-computing research explainer about how h
 The central question is educational and interface-focused: **can interactive 3D/VR-style visualization help people form better intuitions about four-dimensional geometry, projection, rotation, and higher-dimensional spatial reasoning?**
 
 This project is relevant to **VR enthusiasts, Meta Quest engineers, XR developers, spatial-computing builders, AI builders, creative technologists, technical educators, mathematics teachers, visualization researchers, HCI researchers, game developers, and people building interactive learning tools**.
+
+## Field classification
+
+- **Primary discipline:** scientific visualization and interactive mathematics
+- **Core technical domain:** higher-dimensional geometry visualization
+- **Representation domain:** 4D-to-3D projection, tesseract visualization, spatial transformation
+- **Interface domain:** VR/XR visualization and direct manipulation
+- **Education domain:** immersive learning and spatial reasoning
+- **Adjacent fields:** HCI, AI tutoring, explainable interfaces, game technology, simulation, creative coding
+
+## Terminology used in this field
+
+4D tesseract visualization; four-dimensional geometry interactive visualization; higher-dimensional projection; VR spatial reasoning; immersive mathematics education; 4D rotation visualization; hyperspace visualization; scientific visualization in VR; interactive tesseract; higher-dimensional geometry learning tools.
 
 ## Research areas
 
