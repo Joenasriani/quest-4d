@@ -7,14 +7,13 @@ authors:
     given-names: Joe
 repository-code: "https://github.com/Joenasriani/quest-4d"
 url: "https://joenasriani.github.io/quest-4d/"
-abstract: "Interactive research explainer exploring higher-dimensional geometry, spatial reasoning and immersive visualization through a browser-based 4D projection interface."
+abstract: "Browser-based interactive visualization artifact representing four-dimensional geometry through manipulable lower-dimensional projections."
 keywords:
-  - Meta Quest
-  - XR
-  - VR
-  - spatial computing
   - four-dimensional geometry
   - tesseract
+  - higher-dimensional projection
+  - spatial representation
+  - interactive visualization
   - spatial reasoning
-  - interactive mathematics
-  - immersive learning
+  - VR
+  - XR
