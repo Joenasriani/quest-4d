@@ -1,98 +1,120 @@
 # Quest-4D — Simulating Hyperspace: 4D Perception in VR
 
 **Author:** Joe Nasr / QuestRequestVR  
-**Research series:** Joe Nasr Quest Research  
 **Live project:** https://joenasriani.github.io/quest-4d/  
-**Research abstract:** https://joenasriani.github.io/quest-4d/research.html  
+**Research page:** https://joenasriani.github.io/quest-4d/research.html  
 **Research collection:** https://joenasriani.github.io/joe-research-registry/quest-research.html  
-**Author record:** https://joenasriani.github.io/joe-research-registry/author/joe-nasr.html  
-**Identity:** https://joe-nasr-signals.vercel.app/v2/  
-**Status:** Interactive research explainer and visualization study  
-**Primary field:** Scientific Visualization / Interactive Mathematics / Spatial Reasoning  
-**Specialisms:** four-dimensional geometry, tesseract visualization, higher-dimensional projection, VR/XR education, immersive learning, visual reasoning, HCI
+**Repository:** https://github.com/Joenasriani/quest-4d
 
-## Overview
+## 1. Artifact type
 
-Quest-4D is an interactive VR / spatial-computing research explainer about how higher-dimensional geometry can be represented, projected, and reasoned about through immersive interfaces. The project uses a browser-based presentation and interactive tesseract-style controls to make difficult spatial ideas more inspectable.
+Interactive browser-based visualization artifact.
 
-The central question is educational and interface-focused: **can interactive 3D/VR-style visualization help people form better intuitions about four-dimensional geometry, projection, rotation, and higher-dimensional spatial reasoning?**
+## 2. Primary domain
 
-This project is relevant to **VR enthusiasts, Meta Quest engineers, XR developers, spatial-computing builders, AI builders, creative technologists, technical educators, mathematics teachers, visualization researchers, HCI researchers, game developers, and people building interactive learning tools**.
+Four-dimensional geometry and spatial representation.
 
-## Field classification
+## 3. Core object
 
-- **Primary discipline:** scientific visualization and interactive mathematics
-- **Core technical domain:** higher-dimensional geometry visualization
-- **Representation domain:** 4D-to-3D projection, tesseract visualization, spatial transformation
-- **Interface domain:** VR/XR visualization and direct manipulation
-- **Education domain:** immersive learning and spatial reasoning
-- **Adjacent fields:** HCI, AI tutoring, explainable interfaces, game technology, simulation, creative coding
+A tesseract-style four-dimensional geometric structure represented through lower-dimensional projection.
 
-## Terminology used in this field
+## 4. Implemented mechanism
 
-4D tesseract visualization; four-dimensional geometry interactive visualization; higher-dimensional projection; VR spatial reasoning; immersive mathematics education; 4D rotation visualization; hyperspace visualization; scientific visualization in VR; interactive tesseract; higher-dimensional geometry learning tools.
+The artifact follows this representation chain:
 
-## Research areas
+**4D geometric structure → transformation / rotation → lower-dimensional projection → browser display → direct user manipulation**
 
-- Four-dimensional geometry and tesseract visualization
-- Higher-dimensional projection and spatial reasoning
-- VR / XR visualization
-- Interactive mathematical education
-- Spatial computing and immersive learning
-- Human-computer interaction
-- Visual reasoning tools for AI-assisted learning
-- Creative coding and technical prototyping
+The interface therefore represents higher-dimensional geometry indirectly. It does not provide literal sensory access to four spatial dimensions.
 
-## What the project does
+## 5. Functional purpose
 
-The live page combines explanatory material with an interactive visualization environment. It is designed to help users inspect relationships that are difficult to communicate with static diagrams alone.
+The current artifact allows a user to inspect projected higher-dimensional geometry through:
 
-The interface includes interactive controls for exploring a projected higher-dimensional object and related explanatory sections. The goal is not to claim that a browser or VR headset gives humans literal biological access to a fourth spatial dimension. Instead, the project explores **mathematical projection and analogy as an interface for understanding higher-dimensional structure**.
+- projection;
+- transformation;
+- rotation;
+- animation;
+- interactive manipulation;
+- accompanying explanatory material.
 
-## Why this matters
+## 6. Knowledge function
 
-Higher-dimensional concepts appear in mathematics, physics, visualization, data analysis, machine learning, simulation, and speculative interface design. For AI builders and educators in particular, interactive spatial models can be useful when a text-only explanation is insufficient.
+The project can be represented as:
 
-The broader design question behind Quest-4D is therefore relevant beyond mathematics: **how should software represent concepts that humans cannot perceive directly?** That connects the project to explainable AI, scientific visualization, immersive education, simulation interfaces, and visual reasoning systems.
+**formal higher-dimensional structure → mathematical transformation → lower-dimensional representation → interactive inspection → possible conceptual understanding**
 
-## Research status
+The final step is a research hypothesis, not an established outcome.
 
-This repository should be treated as an **interactive explanatory experiment**, not experimental proof of a new physical phenomenon and not evidence that users literally perceive four spatial dimensions.
+## 7. Research question
 
-Useful future validation could include:
+**Does interactive manipulation of projected four-dimensional geometry affect understanding of projection, rotation, and higher-dimensional spatial relationships relative to non-interactive representations?**
 
-- pre/post comprehension testing;
-- comparison against static diagrams or video explanations;
-- usability studies with students, developers, and VR users;
-- measurement of which interaction controls improve conceptual understanding;
-- a native Meta Quest version for immersive evaluation.
+The repository currently proposes this question but does not contain controlled evidence that answers it.
 
-## Limitations
+## 8. Evidence boundary
 
-- A 3D display can only represent higher-dimensional structures through projection, transformation, animation, metaphor, or other encoding.
-- Visual intuition is not equivalent to formal mathematical proof.
-- The current project is an educational / interface study rather than a controlled learning experiment.
-- Claims about educational effectiveness require user testing.
+### Implemented
 
-## Who this is for
+- browser-based interactive representation;
+- tesseract / higher-dimensional visualization;
+- direct manipulation of the representation;
+- explanatory material about projection and higher-dimensional geometry.
 
-- Meta Quest and XR engineers exploring spatial visualization
-- VR enthusiasts interested in unusual perception and geometry
-- AI builders creating visual reasoning or educational systems
-- Technical educators and teachers explaining difficult spatial concepts
-- Creative technologists building interactive research experiences
-- Game and simulation developers working with non-Euclidean or higher-dimensional ideas
+### Not established by this repository
 
-## Related research
+- improved learning;
+- improved spatial reasoning;
+- superiority over static diagrams, video, or text;
+- literal perception of a fourth spatial dimension;
+- discovery of a new physical phenomenon;
+- validated educational effectiveness;
+- results from a controlled human-subject experiment.
 
-Joe Nasr Research Registry:  
-https://joenasriani.github.io/joe-research-registry/
+## 9. Current validation state
 
-Author / provenance record:  
-https://joenasriani.github.io/joe-research-registry/author/joe-nasr.html
+| Layer | Current state |
+| --- | --- |
+| Interactive artifact | Present |
+| Research question | Present |
+| Controlled comparative study | Absent |
+| Measured learning outcome | Absent |
+| Empirical conclusion about effectiveness | Unsupported at present |
 
-QuestRequestVR:  
-https://linktr.ee/questrequestvr
+## 10. Potential evaluation framework
+
+A future study could compare representation modes such as:
+
+**static diagram → animation → interactive 3D representation → immersive VR representation**
+
+Possible outcome measures could include:
+
+- comprehension accuracy;
+- spatial-transformation error rate;
+- transfer to new problems;
+- retention;
+- task-completion time;
+- confidence compared with measured accuracy.
+
+These are proposed evaluation variables, not results of the current project.
+
+## 11. Possible application contexts
+
+The representation problem addressed here also appears in contexts such as:
+
+- mathematics education;
+- scientific visualization;
+- spatial-reasoning research;
+- HCI studies of interactive representations;
+- VR/XR interface research;
+- high-dimensional data visualization;
+- simulation interfaces;
+- visual explanation systems.
+
+The current repository directly implements only the four-dimensional geometry visualization case. Applications to other domains would require separate implementation and validation.
+
+## 12. Compact definition
+
+**Quest-4D is a browser-based interactive visualization artifact that represents four-dimensional geometry through manipulable lower-dimensional projections. It demonstrates a representation method and provides a basis for studying whether interaction with such representations affects understanding of higher-dimensional spatial relationships.**
 
 ## Citation
 
