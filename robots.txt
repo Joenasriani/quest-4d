@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joenasriani.github.io/quest-4d/sitemap.xml
