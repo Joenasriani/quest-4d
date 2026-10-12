@@ -1,4 +1,4 @@
-# Quest-4D — Simulating Hyperspace: 4D Perception in VR
+# Quest-4D: Exploring Four-Dimensional Geometry in VR
 
 **Author:** Joe Nasr / QuestRequestVR  
 **Live project:** https://joenasriani.github.io/quest-4d/  
