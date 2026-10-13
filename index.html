@@ -558,8 +558,8 @@
     <header>
         <div class="container header-content">
             <h1>Quest-4D: Exploring Four-Dimensional Geometry in VR</h1>
-            <p class="subtitle">Research on the Theory, Implementation, and Implications of Fourth-Dimensional Perception in Virtual Reality</p>
-            <p class="author">by QuestRequestVR (JOENASR)</p>
+            <p class="subtitle">Interactive four-dimensional geometry projections and a proposed VR research direction</p>
+            
         </div>
     </header>
     
@@ -567,7 +567,7 @@
         <div class="nav-container">
             <div class="logo">4D VR Research</div>
             <ul class="nav-links">
-                <li><a href="#executive">Executive Summary</a></li>
+                <li><a href="#executive">Abstract</a></li>
                 <li><a href="#foundations">Foundations</a></li>
                 <li><a href="#implementation">Implementation</a></li>
                 <li><a href="#human-interface">Human Interface</a></li>
@@ -580,7 +580,7 @@
             <!-- Mobile navigation menu -->
             <div class="mobile-nav">
                 <ul class="mobile-nav-links">
-                    <li><a href="#executive">Executive Summary</a></li>
+                    <li><a href="#executive">Abstract</a></li>
                     <li><a href="#foundations">Foundations</a></li>
                     <li><a href="#implementation">Implementation</a></li>
                     <li><a href="#human-interface">Human Interface</a></li>
@@ -594,19 +594,19 @@
     
     <main class="container">
         <section id="executive" class="section">
-            <h2>Executive Summary</h2>
+            <h2>Abstract</h2>
             
-            <p>This report presents a comprehensive investigation into the simulation of a fourth spatial dimension (4D) within immersive three-dimensional (3D) virtual reality (VR) environments. It establishes that the perceptual experience of navigating a four-dimensional Euclidean space (R^4) is not only technically feasible on current and near-future consumer VR hardware but is poised to become a transformative paradigm across science, industry, and the arts.</p>
+            <p>This page presents an interactive browser visualization of a tesseract and an overview of four-dimensional geometry. Users can manipulate rotations and inspect lower-dimensional projections. The repository does not establish immersive VR operation, literal perception of four spatial dimensions, or measured learning benefits.</p>
             
-            <p>The central thesis, inspired by the analogy of rendering 3D worlds on 2D screens, is that 4D geometry can be projected into 3D immersive space to grant users abilities impossible in their native environment, such as perceiving the interior and exterior of a sealed volume simultaneously.</p>
+            <p>Projection and cross-sectioning can represent selected properties of four-dimensional geometry in a three-dimensional display. These representations are mathematical models, not a new sensory ability.</p>
             
-            <p>The research synthesizes foundational mathematical principles, prior interactive implementations, and a detailed technical blueprint for a reference architecture using modern game engines like Unity and Unreal Engine. It details the core methodologies of 4D-to-3D projection—namely cross-sectioning (slicing) and perspective projection—and demonstrates how the choice of method fundamentally dictates the interaction paradigm, shaping the experience into one of either spatial traversal or geometric inspection.</p>
+            <p>The discussion introduces rotation, slicing and perspective projection and links to related implementations. Unity and Unreal Engine are possible environments for future VR work; the browser demonstration is the implemented artifact documented here.</p>
             
-            <p>Converging advancements in real-time rendering, artificial intelligence (AI), and neurotechnology are identified as key accelerators. The report explores the prospective integration of 4D ray tracing and neural rendering techniques, arguing these are not mere visual enhancements but are critical for providing the perceptual cues necessary for cognitive adaptation.</p>
+            <p>Ray tracing, neural rendering and additional sensory cues are possible research directions. Their value for this visualization has not been tested.</p>
             
-            <p>The primary challenge in this domain is progressively shifting from a technical one of <em>implementation</em> to a human-centric one of <em>comprehension</em>. The human brain, hardwired for three dimensions, requires structured training and augmented sensory feedback to develop an intuition for hyperspace.</p>
+            <p>A proposed evaluation would test whether interaction improves understanding compared with static diagrams or animation. No controlled user study or measured learning outcome is reported.</p>
             
-            <p>The report concludes by surveying a broad spectrum of high-impact applications, from "inside-out" visualization of protein folding in molecular biology and intuitive analysis of high-dimensional climate data to a new pedagogical paradigm for teaching abstract physics and mathematics. Finally, it addresses the profound philosophical and ethical questions raised by the creation of non-human sensory realities.</p>
+            <p>Applications in education and scientific visualization remain proposals. Each would require a specific implementation and evaluation.</p>
         </section>
         
         <section id="foundations" class="section">
@@ -616,10 +616,10 @@
             
             <p>Human perception and interaction are fundamentally constrained by the three spatial dimensions of our physical reality. A direct consequence of this three-dimensional existence is the principle of occlusion: opaque surfaces of an enclosed volume, such as the walls of a room or the shell of a container, prevent an external observer from viewing the contents within.</p>
             
-            <p>Theoretical geometry offers a compelling, albeit non-intuitive, solution to this problem. Within the mathematical framework of Euclidean geometry, there is no logical barrier to extending the familiar three axes (x, y, z) with a fourth, mutually orthogonal spatial axis, typically denoted as 'w'. The resulting four-dimensional space, known as Euclidean 4-space or R^4, possesses geometric properties that directly circumvent the limitations of 3D occlusion.</p>
+            <p>Four-dimensional Euclidean geometry adds a fourth coordinate, w, to x, y and z. Projection or slicing makes selected geometric relationships visible in a lower-dimensional representation; it does not remove physical occlusion in the user's surroundings.</p>
             
             <div class="highlight">
-                <p>This report is predicated on the central thesis that this higher-dimensional advantage can be simulated for a human user within a 3D virtual reality environment. The core concept is analogous to the foundational principle of computer graphics: the projection of a higher-dimensional space onto a lower-dimensional one for perception.</p>
+                <p>The demonstration represents four-dimensional geometry through projection. A future immersive implementation would need its own interface design and testing.</p>
             </div>
             
             <h3>1.2 The Mathematics of R^4: Points, Rotations, and Transformations</h3>
@@ -630,11 +630,11 @@
             
             <p>In 3D space, rotation occurs <em>around an axis</em>. For example, rotation in the xy-plane occurs around the z-axis. In 4D space, with four basis vectors, there are six fundamental planes of rotation (xy, xz, yz, xw, yw, zw). Consequently, rotation in 4D space occurs <em>around a plane</em>.</p>
             
-            <p>While Euler angles and rotation matrices are sufficient for describing these transformations, they become cumbersome and are susceptible to issues like gimbal lock when composing multiple rotations. A more elegant and computationally stable method for handling rotations, especially in 3D and VR development, is the use of quaternions.</p>
+            <p>The demonstration uses plane rotations. Rotation representations used for ordinary 3D objects should not be treated as a complete description of general four-dimensional rotations.</p>
             
             <h3>1.3 Projecting the Unseen: Methodologies for 4D-to-3D Visualization</h3>
             
-            <p>Since a human user in a VR headset can only perceive a three-dimensional world, the core technical challenge of 4D simulation is the method of projection—the mathematical process of converting 4D geometry into a 3D representation. The choice of projection method is not merely a technical detail; it is a fundamental design decision that dictates the entire user experience and interaction paradigm.</p>
+            <p>Since a human user in a VR headset can only perceive a three-dimensional world, the core technical challenge of 4D simulation is the method of projection – the mathematical process of converting 4D geometry into a 3D representation. The choice of projection method is not merely a technical detail; it is a fundamental design decision that dictates the entire user experience and interaction paradigm.</p>
             
             <h4>Primary Projection Methods:</h4>
             <ul>
@@ -645,9 +645,9 @@
             
             <h3>1.4 Building Intuition: From Flatland to Advanced Analogies</h3>
             
-            <p>The primary barrier to comprehending a fourth spatial dimension is not mathematical but cognitive. The human brain has evolved within a 3D Euclidean environment, and our intuition for spatial relationships is deeply ingrained.</p>
+            <p>Understanding projected four-dimensional geometry may require practice. This project has not measured the effects of training.</p>
             
-            <p>The most famous and effective starting point is Edwin Abbott's 1884 novella, <em>Flatland: A Romance of Many Dimensions</em>. The story describes a 2D world inhabited by geometric shapes. To these "Flatlanders," a closed circle is an impenetrable wall. When a 3D sphere passes through their plane, they perceive it only as a circle that mysteriously appears from a point, grows in size, and then shrinks back to a point before vanishing.</p>
+            <p>One explanatory analogy is Edwin Abbott's 1884 novella, <em>Flatland: A Romance of Many Dimensions</em>. The story describes a 2D world inhabited by geometric shapes. To these "Flatlanders," a closed circle is an impenetrable wall. When a 3D sphere passes through their plane, they perceive it only as a circle that mysteriously appears from a point, grows in size, and then shrinks back to a point before vanishing.</p>
             
             <p>This analogy provides the crucial conceptual leap: just as 3D is to 2D, 4D is to 3D. A hypothetical 4D being could perceive all points within a sealed 3D room simultaneously, and a 4D object passing through our 3D space would manifest as a changing 3D cross-section.</p>
             
@@ -720,14 +720,14 @@
                 <li><strong>Perspective Projection:</strong> The simulation uses perspective projection to create the 3D "shadow" of the 4D object, with parts further away in the fourth dimension appearing smaller.</li>
             </ul>
             
-            <p>This interactive demonstration helps build intuition for how 4D objects would appear in our 3D world, and provides a tangible example of the projection methods discussed earlier.</p>
+            <p>This demonstration illustrates projected geometry. Whether interaction improves spatial understanding remains an evaluation question.</p>
             
             <h3>1.6 A Survey of Foundational Implementations</h3>
             
             <p>The concept of simulating 4D space is not merely theoretical; it has been successfully implemented in several notable software projects that serve as crucial proofs-of-concept.</p>
             
             <ul>
-                <li><strong>Miegakure (2015-2024):</strong> Widely regarded as the first and most sophisticated attempt to build an interactive video game set in a navigable 4D world, <em>Miegakure</em> utilizes the cross-sectioning or "slicing" method of 4D projection.</li>
+                <li><strong>Miegakure (2015-2024):</strong> A related game project exploring four-dimensional space, <em>Miegakure</em> utilizes the cross-sectioning or "slicing" method of 4D projection.</li>
                 <li><strong>4D Toys (2017):</strong> Created by the same developer as <em>Miegakure</em>, <em>4D Toys</em> is a physics sandbox application that uses perspective projection to render the 3D "shadows" of 4D rigid bodies.</li>
                 <li><strong>Academic Prototypes and Studies:</strong> The academic community, particularly researchers in human-computer interaction and scientific visualization, has also explored this domain. Multiple papers presented at premier conferences such as IEEE VR have documented the development of prototypes for visualizing 4D objects.</li>
             </ul>
@@ -736,7 +736,7 @@
         <!-- Additional sections would go here -->
         
         <section class="section citation">
-            <h2>Citations</h2>
+            <h2>References</h2>
             <ol>
                 <li>Abbott, Edwin A. (1884). <em>Flatland: A Romance of Many Dimensions</em>. Seeley & Co.</li>
                 <li>Banchoff, Thomas F. (1990). <em>Beyond the Third Dimension: Geometry, Computer Graphics, and Higher Dimensions</em>. Scientific American Library.</li>
@@ -772,7 +772,7 @@
     
     <footer>
         <div class="container">
-            <p>Simulating Hyperspace: 4D Perception in VR - Research Report</p>
+            <p>Quest-4D: Exploring Four-Dimensional Geometry in VR</p>
             <p>© 2024 QuestRequestVR. This report is for informational and research purposes.</p>
         </div>
     <p>Credit: Joe Nasr</p>
