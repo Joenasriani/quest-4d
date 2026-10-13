@@ -1,6 +1,5 @@
 # Quest-4D: Exploring Four-Dimensional Geometry in VR
 
-**Author:** Joe Nasr / QuestRequestVR  
 **Live project:** https://joenasriani.github.io/quest-4d/  
 **Research page:** https://joenasriani.github.io/quest-4d/research.html  
 **Research collection:** https://joenasriani.github.io/joe-research-registry/quest-research.html  
@@ -118,5 +117,7 @@ The current repository directly implements only the four-dimensional geometry vi
 
 ## Citation
 
-**Joe Nasr. _Quest-4D: Simulating Hyperspace — 4D Perception in VR._ QuestRequestVR.**  
+**Joe Nasr. _Quest-4D: Exploring Four-Dimensional Geometry in VR._ QuestRequestVR.**  
 Repository: https://github.com/Joenasriani/quest-4d
+
+Credit: Joe Nasr
